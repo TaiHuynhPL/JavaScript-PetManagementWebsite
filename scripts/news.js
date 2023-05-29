@@ -16,28 +16,28 @@ if (currentUser) {
     //Khai báo biến html ban đầu có chuỗi rỗng
     let html = "";
     //Chạy vòng lặp để lấy nội dung vào html
-    articlesArr.forEach((article) => {
-      html += `<div class="card flex-row flex-wrap">
+    for(let i=0; i<articlesArr.length ; i++){
+       html += `<div class="card flex-row flex-wrap">
       <div class="card mb-3" style="">
         <div class="row no-gutters">
           <div class="col-md-4">
             <img
               src="${
-                article.urlToImage ? article.urlToImage : "../image/noimg.jpg"
+                articlesArr[i].urlToImage ? articlesArr[i].urlToImage : "../image/noimg.jpg"
               }"
               class="card-img"
-              alt="${article.title}"
+              alt="${articlesArr[i].title}"
             />
           </div>
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">
-                ${article.title ? article.title : "No title"}
+                ${articlesArr[i].title ? articlesArr[i].title : "No title"}
               </h5>
               <p class="card-text">
-                ${article.description ? article.description : "No description"}
+                ${articlesArr[i].description ? articlesArr[i].description : "No description"}
               </p>
-                  <a href="${article.url}"
+                  <a href="${articlesArr[i].url}"
                   class="btn btn-primary" target="_blank"
                   >View</a>
               </div>
@@ -45,8 +45,7 @@ if (currentUser) {
           </div>
         </div>
       </div>`;
-    });
-
+    }
     //Thêm html vừa được ghi mới vào trong phần tử newsContainer
     newsContainer.innerHTML = html;
   };
