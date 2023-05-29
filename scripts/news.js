@@ -16,7 +16,8 @@ if (currentUser) {
     //Khai báo biến html ban đầu có chuỗi rỗng
     let html = "";
     //Chạy vòng lặp để lấy nội dung vào html
-    for(let i=0; i<articlesArr.length ; i++){
+    if(articlesArr){
+       for(let i=0; i<articlesArr.length ; i++){
        html += `<div class="card flex-row flex-wrap">
       <div class="card mb-3" style="">
         <div class="row no-gutters">
@@ -45,6 +46,7 @@ if (currentUser) {
           </div>
         </div>
       </div>`;
+    }
     }
     //Thêm html vừa được ghi mới vào trong phần tử newsContainer
     newsContainer.innerHTML = html;
